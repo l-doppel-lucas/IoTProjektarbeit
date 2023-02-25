@@ -124,7 +124,7 @@ bool QwiicPeripheralsInit() {
   return init_success;
 }
 
-ToggleService Service(_button, _leds);
+//ToggleService Service(_button, _leds);
 
 static void InitState2Text(bool state) {
   Serial.println(state ? "done" : "failed");
