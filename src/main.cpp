@@ -11,6 +11,7 @@
 
 #include <config/secrets.h>
 #include <config/mqtt.h>
+#include <services/ToggleService.h>
 
 #include <Path.h>
 
@@ -123,12 +124,15 @@ bool QwiicPeripheralsInit() {
   return init_success;
 }
 
+ToggleService Service(_button, _leds);
+
 static void InitState2Text(bool state) {
   Serial.println(state ? "done" : "failed");
 }
 
 void loop() {
   CommunicationTask();
+  // Service.loop();
   ButtonTask();
   ToggleTask();
 
